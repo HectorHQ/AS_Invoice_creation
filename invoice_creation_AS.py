@@ -51,7 +51,7 @@ def invoice_creation_AS(headers,org_id,date,amount,toogle,notes,invoice_id):
 
     response = requests.post('https://api.nabis.com/graphql/admin', headers=headers, json=json_data)
 
-    data = response.json()
+    data = response
     
     return data
 
@@ -109,6 +109,7 @@ if __name__ == "__main__":
                 inv_id = i['InvoiceID']
 
                 data = invoice_creation_AS(headers,Org_id,dueDate,amount=amount,toogle=toggle,notes=notes,invoice_id=inv_id)
+                data
                 st.markdown('---')
                 if data['data']['postAccountingAPICreateManualInvoiceForOrg'] == True:
                     st.text(f'Invoice Generated')

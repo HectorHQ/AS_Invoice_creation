@@ -85,7 +85,7 @@ if __name__ == "__main__":
         password = password_st
         token,userid = get_bearer_token(user,password)
         headers = create_headers(token)
-        headers
+        
         file = load_dataframe(file_uploaded)
         df = file.dropna(subset=['OrgName'])
         df['dueDate'] = df['dueDate'].astype('str')
@@ -109,7 +109,8 @@ if __name__ == "__main__":
                 inv_id = i['InvoiceID']
 
                 data = invoice_creation_AS(headers,Org_id,dueDate,amount=amount,toogle=toggle,notes=notes,invoice_id=inv_id)
-                data
+                st.text(data.content)
+                st.text(data.text)
                 data = data.json()
                 st.markdown('---')
                 if data['data']['postAccountingAPICreateManualInvoiceForOrg'] == True:

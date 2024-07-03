@@ -109,7 +109,7 @@ if __name__ == "__main__":
                 inv_id = i['InvoiceID']
 
                 data = invoice_creation_AS(headers,Org_id,dueDate,amount=amount,toogle=toggle,notes=notes,invoice_id=inv_id)
-                st.text(data.content)
+                
                 st.text(data.text)
                 data = data.json()
                 st.markdown('---')

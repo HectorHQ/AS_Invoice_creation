@@ -37,7 +37,7 @@ def invoice_creation_AS(headers,org_id,date,amount,toogle,notes,invoice_id,name)
         'variables': {
             'input': {
                 'invoiceTypeGroupType': 'FEE',
-                'name': name
+                'name': name,
                 'invoiceTypeId': invoice_id,
                 'paidBy': org_id,
                 'paidTo': 'TWluaW1hbE9yZ2FuaXphdGlvbkJhbmtpbmc6OTYwZjRiNTYtYzVkYi00MWQ2LTgyNGQtODU2M2U5OGQ4NTBl',

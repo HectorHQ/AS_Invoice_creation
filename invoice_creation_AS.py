@@ -30,13 +30,14 @@ def load_dataframe(file):
     return df
 
 
-def invoice_creation_AS(headers,org_id,date,amount,toogle,notes,invoice_id):
+def invoice_creation_AS(headers,org_id,date,amount,toogle,notes,invoice_id,name):
     
     json_data = {
         'operationName': 'postAccountingAPICreateManualInvoiceForOrg',
         'variables': {
             'input': {
                 'invoiceTypeGroupType': 'FEE',
+                'name': name
                 'invoiceTypeId': invoice_id,
                 'paidBy': org_id,
                 'paidTo': 'TWluaW1hbE9yZ2FuaXphdGlvbkJhbmtpbmc6OTYwZjRiNTYtYzVkYi00MWQ2LTgyNGQtODU2M2U5OGQ4NTBl',
@@ -107,8 +108,9 @@ if __name__ == "__main__":
                 toggle = i['enforcedDeductible']
                 notes = i['adminNotes']
                 inv_id = i['InvoiceID']
+                name = I['name']
 
-                data = invoice_creation_AS(headers,Org_id,dueDate,amount=amount,toogle=toggle,notes=notes,invoice_id=inv_id)
+                data = invoice_creation_AS(headers,Org_id,dueDate,amount=amount,toogle=toggle,notes=notes,invoice_id=inv_id,name=name)
                 
                 st.text(data.text)
                 data = data.json()

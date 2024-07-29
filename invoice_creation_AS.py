@@ -108,7 +108,7 @@ if __name__ == "__main__":
                 toggle = i['enforcedDeductible']
                 notes = i['adminNotes']
                 inv_id = i['InvoiceID']
-                name = I['name']
+                name = i['name']
 
                 data = invoice_creation_AS(headers,Org_id,dueDate,amount=amount,toogle=toggle,notes=notes,invoice_id=inv_id,name=name)
                 

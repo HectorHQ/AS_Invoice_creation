@@ -90,6 +90,7 @@ if __name__ == "__main__":
         file = load_dataframe(file_uploaded)
         df = file.dropna(subset=['OrgName'])
         df['dueDate'] = df['dueDate'].astype('str')
+        df['name'] = df['name'].astype('str')
         # df['enforcedDeductible'] = df['enforcedDeductible'].astype('str')
         
         list_items = df.to_json(orient='records')
